@@ -29,8 +29,10 @@ The data is defined by three cohorts: Training, Validation, and Testing. These 3
 
 
 ### Work-breakdown structure
-![DL project drawio](https://user-images.githubusercontent.com/96443138/197740875-2c0f0076-8208-475d-8f74-855fe10196bd.png)
-
+  
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/96443138/197740875-2c0f0076-8208-475d-8f74-855fe10196bd.png">
+</p>
 
 ### References
 
