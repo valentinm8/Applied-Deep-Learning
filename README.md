@@ -33,7 +33,7 @@ The data is defined by three cohorts: Training, Validation, and Testing. These 3
 Here we can see the project overview, which includes three key steps: Application Development, Re-Implementation & Build NN, and Documentation. 
   
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/96443138/197740875-2c0f0076-8208-475d-8f74-855fe10196bd.png">
+  <img src="![DL project](https://user-images.githubusercontent.com/96443138/197838802-71a83811-28ec-431a-91ea-2396249fc5e3.jpg)">
 </p>
 
 Planning complex projects can be challenging, since many unexpected issues may be encountered along the way.
