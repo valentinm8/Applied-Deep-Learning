@@ -9,10 +9,7 @@ Currently, genetic analysis of cancer requires surgery to extract a tissue sampl
 
 ### Project Idea & Approach
 
-This project is focused on the building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired from already finished Kaggle competition, we will try to re-implement some of the most prominent shared notebooks and even to build our own neural network. 
-
-
-
+This project is focused on the building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired from already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks (including the 1st place Kaggle competition model, which uses 3D CNN), and even to build our own neural network in order to imporve the state of art. 
 
 
 ### Dataset Description
@@ -32,6 +29,7 @@ The data is defined by three cohorts: Training, Validation, and Testing. These 3
 
 
 ### Work-breakdown structure
+
 
 ### References
 
@@ -68,3 +66,9 @@ https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-net
 ##### RSNA-MICCAI Brain Tumor Radiogenomic Classification
 https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/overview
 
+##### Kaggle - 1st place solution with very simple code
+https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/discussion/281347
+
+
+##### Kaggle Competition - RSNA-MICCAI Brain Tumor Radiogenomic Classification
+https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/overview
