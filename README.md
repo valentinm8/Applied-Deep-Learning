@@ -2,14 +2,14 @@
 
 ## RSNA-MICCAI Brain Tumor Radiogenomic Classification
 
-A malignant tumor in the brain is a life-threatening condition. Known as glioblastoma, it's both the most common form of brain cancer in adults and the one with the worst prognosis, with median survival being less than a year. The presence of a specific genetic sequence in the tumor known as MGMT promoter methylation has been shown to be a favorable prognostic factor and a strong predictor of responsiveness to chemotherapy.
+A malignant tumor in the brain is a life-threatening condition. Known as glioblastoma, it's both the most common form of brain cancer in adults and the one with the worst prognosis, with median survival being less than a year. The presence of a specific genetic sequence in the tumor known as MGMT promoter methylation is a favorable prognostic factor and a strong predictor of responsiveness to chemotherapy.
 
-Currently, genetic analysis of cancer requires surgery to extract a tissue sample. Then it can take several weeks to determine the genetic characterization of the tumor. Depending upon the results and type of initial therapy chosen, a subsequent surgery may be necessary. If an accurate method to predict the genetics of the cancer through imaging (i.e., radiogenomics) alone could be developed, this would potentially minimize the number of surgeries and refine the type of therapy required.
+Currently, genetic analysis of cancer requires surgery to extract a tissue sample. Then it can take several weeks to determine the genetic characterization of the tumor. Depending upon the results and type of initial therapy chosen, subsequent surgery may be necessary. If an accurate method to predict the genetics of cancer through imaging (i.e., radiogenomics) alone could be developed, this would potentially minimize the number of surgeries and refine the type of therapy required.
 
 
 ### Project Idea & Approach
 
-This project is focused on the building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired from already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks (including the 1st place Kaggle competition model, which uses 3D CNN), and even to build our own neural network in order to imporve the state of art. 
+This project is focused on building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired by already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks (including the 1st place Kaggle competition model, which uses 3D CNN), and even build our neural network to improve the state of art. 
 
 
 ### Dataset Description
@@ -29,10 +29,42 @@ The data is defined by three cohorts: Training, Validation, and Testing. These 3
 
 
 ### Work-breakdown structure
+
+Here we can see the project overview, which includes three key steps: Application Development, Re-Implementation & Build NN, and Documentation. 
   
 <p align="center">
   <img src="https://user-images.githubusercontent.com/96443138/197740875-2c0f0076-8208-475d-8f74-855fe10196bd.png">
 </p>
+
+Planning complex projects can be challenging, since many unexpected issues may be encountered along the way.
+
+
+Here is a work-breakdown structure for the individual tasks with rough time estimates: 
+
+- Topic Research & Problem Understanding **(4h)**
+
+- Re-Implementation **(70 hours)**
+  - Data pre-processing (12 hours) 
+  - Defining NN (14 hours)
+  - Implementation (15 hours)
+  - Training (5 hours)
+  - Evaluation (2 hours)
+  - Fine-tuning (20 hours)
+  - Prediction (2 hours)
+
+
+- Application Development **(33 hours)**
+  - Analysis (10 hours)
+  - Design (5 hours)
+  - Implementation (15 hours)
+  - Testing (3 hours)
+
+- Documentation **(8 hours)**
+  - Final Report (6h)
+  - Presentation (2h)
+
+In total: **115 hours**
+
 
 ### References
 
