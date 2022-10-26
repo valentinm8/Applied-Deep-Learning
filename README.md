@@ -1,36 +1,81 @@
 # Applied Deep Learning - Computer Vision - Image Classification
 
-## RSNA-MICCAI Brain Tumor Radiogenomic Classification
+## Kaggle Competition - PetFinder.my - Pawpularity Contest
 
-A malignant tumor in the brain is a life-threatening condition. Known as glioblastoma, it's both the most common form of brain cancer in adults and the one with the worst prognosis, with median survival being less than a year. The presence of a specific genetic sequence in the tumor known as MGMT promoter methylation is a favorable prognostic factor and a strong predictor of responsiveness to chemotherapy.
+Millions of stray animals suffer on the streets or are euthanized in shelters every day around the world. We may expect that pets with attractive photos generate more interest and are adopted faster. The most important question is what makes a good picture? Using data science methods may be able to accurately determine a pet photo's appeal and even suggest improvements to give these rescue animals a higher chance of loving homes. 
 
-Currently, genetic analysis of cancer requires surgery to extract a tissue sample. Then it can take several weeks to determine the genetic characterization of the tumor. Depending upon the results and type of initial therapy chosen, subsequent surgery may be necessary. If an accurate method to predict the genetics of cancer through imaging (i.e., radiogenomics) alone could be developed, this would potentially minimize the number of surgeries and refine the type of therapy required.
+[PetFinder.my](https://petfinder.my/) is Malaysia’s leading animal welfare platform, featuring over 180,000 animals with 54,000 happily adopted. PetFinder collaborates closely with animal lovers, media, corporations, and global organizations to improve animal welfare.
+
+Currently, PetFinder.my uses a basic [Cuteness Meter](https://petfinder.my/cutenessmeter) to rank pet photos. It analyzes picture composition and other factors compared to the performance of thousands of pet profiles. While this basic tool is helpful, it's still in an experimental stage and the algorithm could be improved
+
+In this competition, idea is to analyze raw images and metadata to predict the "Pawpularity" of pet photos. The model will be trained and tested on the thousands of PerFinder's pet profiles. 
+
+
+### How Pawpularity Score Is Derived
+
+-   The  **Pawpularity Score**  is derived from each pet profile's page view statistics at the listing pages, using an algorithm that normalizes the traffic data across different pages, platforms (web & mobile), and various metrics.
+-   Duplicate clicks, crawler bot accesses and sponsored profiles are excluded from the analysis.
 
 
 ### Project Idea & Approach
 
-This project is focused on building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired by already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks (including the 1st place Kaggle competition model, which uses 3D CNN), and even build our neural network to improve the state of art. 
+This project is focused on building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired by the already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks, and even build our neural network to improve the state of the art. 
+
+The task is to predict engagement with a pet's profile based on the photograph for that profile. We are also provided with hand-labelled metadata for each photo. The dataset for this competition therefore comprises both images and tabular data.
+
+If successful, our solution would be adapted to the AI tools of the application. Using the application, shelters, and rescuers around the world may be able to improve the appeal of their pet profiles, automatically enhancing photo quality and recommending composition improvements. As a result, stray dogs and cats can find their "furever" homes much faster.
 
 
 ### Dataset Description
 
-The data is defined by three cohorts: Training, Validation, and Testing. These 3 cohorts are structured as follows: Each independent case has a dedicated folder identified by a five-digit number. Within each of these “case” folders, there are four sub-folders, each of them corresponding to each of the structural multi-parametric MRI (mpMRI) scans, in DICOM format. The exact mpMRI scans included are:
 
--   Fluid Attenuated Inversion Recovery (FLAIR)
--   T1-weighted pre-contrast (T1w)
--   T1-weighted post-contrast (T1Gd)
--   T2-weighted (T2)
+#### Training Data
+
+-   **train/**  - Folder containing training set photos of the form  **{id}.jpg**, where  **{id}**  is a unique Pet Profile ID.
+-   **train.csv**  - Metadata (described below) for each photo in the training set as well as the target, the photo's  **Pawpularity**  score. The  **Id**  column gives the photo's unique Pet Profile ID corresponding the photo's file name.
+
+#### Example Test Data
+-   **test/**  - Folder containing randomly generated images in a format similar to the training set photos. The actual test data comprises about 6800 pet photos similar to the training set photos.
+-   **test.csv**  - Randomly generated metadata similar to the training set metadata.
+-   **sample_submission.csv**  - A sample submission file in the correct format.
+
+
+#### Photo Metadata
+
+**Photo Metadata**, was created by manually labeling each photo for key visual quality and composition parameters.
+
+These labels are  **not used**  for deriving our Pawpularity score, but it may be beneficial for better understanding the content and co-relating them to a photo's attractiveness. Our end goal is to deploy AI solutions that can generate intelligent recommendations (i.e. show a closer frontal pet face, add accessories, increase subject focus, etc) and automatic enhancements (i.e. brightness, contrast) on the photos, so we are hoping to have predictions that are more easily interpretable.
+
+We may use these labels as you see fit, and optionally build an intermediate / supplementary model to predict the labels from the photos. If our supplementary model is good, we may integrate it into our AI tools as well.
+
+In our production system, new photos that are dynamically scored will not contain any photo labels. If the Pawpularity prediction model requires photo label scores, we will use an intermediary model to derive such parameters, before feeding them to the final model.
+
+
+The  **train.csv**  and  **test.csv**  files contain metadata for photos in the training set and test set, respectively. Each pet photo is labeled with the value of  **1**  (Yes) or  **0**  (No) for each of the following features:
+
+-   **Focus**  - Pet stands out against uncluttered background, not too close / far.
+-   **Eyes**  - Both eyes are facing front or near-front, with at least 1 eye / pupil decently clear.
+-   **Face**  - Decently clear face, facing front or near-front.
+-   **Near**  - Single pet taking up significant portion of photo (roughly over 50% of photo width or height).
+-   **Action**  - Pet in the middle of an action (e.g., jumping).
+-   **Accessory**  - Accompanying physical or digital accessory / prop (i.e. toy, digital sticker), excluding collar and leash.
+-   **Group**  - More than 1 pet in the photo.
+-   **Collage**  - Digitally-retouched photo (i.e. with digital photo frame, combination of multiple photos).
+-   **Human**  - Human in the photo.
+-   **Occlusion**  - Specific undesirable objects blocking part of the pet (i.e. human, cage or fence). Note that not all blocking objects are considered occlusion.
+-   **Info**  - Custom-added text or labels (i.e. pet name, description).
+-   **Blur**  - Noticeably out of focus or noisy, especially for the pet’s eyes and face. For Blur entries, “Eyes” column is always set to 0.
 
 #### Additional Information
 
-- **Files**: 400116 files
-- **Size**: 136.85 GB
-- **Type**: dcm, csv
+- **Files**: 9923 files
+- **Size**: 1.04 GB
+- **Type**: jpg, csv
 
 
 ### Work-breakdown structure
 
-Here we can see the project overview, which includes three key steps: Application Development, Re-Implementation & Build NN, and Documentation. 
+Here we can see the project overview, which includes three key steps: Re-Implementation & Build NN, Application Development, and Documentation. 
   
 <p align="center">
   <img src="https://user-images.githubusercontent.com/96443138/197839045-2919911a-33ac-4aab-b214-e4b65dc06402.jpg">
@@ -42,69 +87,54 @@ Planning complex projects can be challenging, since many unexpected issues may b
 
 Here is a work-breakdown structure for the individual tasks with rough time estimates: 
 
-- Topic Research & Problem Understanding **(4h)**
 
-- Re-Implementation **(70 hours)**
+- Re-Implementation **(80 hours)**
   - Data pre-processing (12 hours) 
   - Defining NN (14 hours)
-  - Implementation (15 hours)
+  - Implementation (25 hours)
   - Training (5 hours)
   - Evaluation (2 hours)
   - Fine-tuning (20 hours)
   - Prediction (2 hours)
 
 
-- Application Development **(33 hours)**
+- Application Development **(37 hours)**
   - Analysis (10 hours)
   - Design (5 hours)
-  - Implementation (15 hours)
+  - Implementation (19 hours)
   - Testing (3 hours)
 
 - Documentation **(8 hours)**
   - Final Report (6h)
   - Presentation (2h)
 
-In total: **115 hours**
+In total: **125 hours**
 
 
 ### References
 
 #### Scientific Papers
 
-##### A Deep Learning Approach for Brain Tumor Classification and Segmentation Using a Multiscale Convolutional Neural Network
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7912940/
 
-
-##### Aleatoric uncertainty estimation with test-time augmentation for medical image segmentation with convolutional neural networks
-https://www.sciencedirect.com/science/article/pii/S0925231219301961
-
-
-##### Brain Tumor Classification Using Deep Learning Technique - A Comparison between Cropped, Uncropped, and Segmented Lesion Images with Different Sizes
-
-https://www.researchgate.net/publication/338540693_Brain_Tumor_Classification_Using_Deep_Learning_Technique_-_A_Comparison_between_Cropped_Uncropped_and_Segmented_Lesion_Images_with_Different_Sizes
-
+##### Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
+https://openaccess.thecvf.com/content/ICCV2021/papers/Liu_Swin_Transformer_Hierarchical_Vision_Transformer_Using_Shifted_Windows_ICCV_2021_paper.pdf
 
 ##### EfficientNetV2: Smaller Models and Faster Training
-https://arxiv.org/abs/2104.00298
+https://arxiv.org/pdf/2104.00298.pdf
 
-##### Interpreting Deep Neural Networks for Medical Imaging using Concept Graphs
-https://paperswithcode.com/paper/abstracting-deep-neural-networks-into-concept
+##### A ConvNet for the 2020s
+https://arxiv.org/pdf/2201.03545.pdf
 
 
 #### Other
-##### Magnetic Resonance Imaging (MRI) of the Brain and Spine: Basics
-https://case.edu/med/neurology/NR/MRI%20Basics.htm
 
 ##### A Comprehensive Guide to Convolutional Neural Networks
 https://towardsdatascience.com/a-comprehensive-guide-to-convolutional-neural-networks-the-eli5-way-3bd2b1164a53
 
 
-##### RSNA-MICCAI Brain Tumor Radiogenomic Classification
-https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/overview
-
-##### Kaggle - 1st place solution with very simple code
-https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/discussion/281347
+##### Kaggle - 1st place solution
+https://www.kaggle.com/competitions/petfinder-pawpularity-score/discussion/301686
 
 
-##### Kaggle Competition - RSNA-MICCAI Brain Tumor Radiogenomic Classification
-https://www.kaggle.com/competitions/rsna-miccai-brain-tumor-radiogenomic-classification/overview
+##### Kaggle Competition - PetFinder.my - Pawpularity Contest
+https://www.kaggle.com/competitions/petfinder-pawpularity-score/overview
