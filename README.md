@@ -4,13 +4,13 @@
 
 ## Kaggle Competition - PetFinder.my - Pawpularity Contest
 
-Millions of stray animals suffer on the streets or are euthanized in shelters every day around the world. We may expect that pets with attractive photos generate more interest and are adopted faster. The most important question is what makes a good picture? Using data science methods may be able to accurately determine a pet photo's appeal and even suggest improvements to give these rescue animals a higher chance of loving homes. 
+Millions of stray animals suffer on the streets or are euthanized in shelters every day around the world. We may expect that pets with attractive photos generate more interest and are adopted faster. The most important question is what makes a good picture? Using data science methods may be able to accurately determine a pet photo's appeal and even suggest improvements to give these rescue animals a higher chance of loving homes.
 
 [PetFinder.my](https://petfinder.my/) is Malaysia’s leading animal welfare platform, featuring over 180,000 animals with 54,000 happily adopted. PetFinder collaborates closely with animal lovers, media, corporations, and global organizations to improve animal welfare.
 
 Currently, PetFinder.my uses a basic [Cuteness Meter](https://petfinder.my/cutenessmeter) to rank pet photos. It analyzes picture composition and other factors compared to the performance of thousands of pet profiles. While this basic tool is helpful, it's still in an experimental stage and the algorithm could be improved
 
-In this competition, idea is to analyze raw images and metadata to predict the "Pawpularity" of pet photos. The model will be trained and tested on the thousands of PerFinder's pet profiles. 
+In this competition, idea is to analyze raw images and metadata to predict the "Pawpularity" of pet photos. The model will be trained and tested on the thousands of PerFinder's pet profiles.
 
 
 ### How Pawpularity Score Is Derived
@@ -21,7 +21,7 @@ In this competition, idea is to analyze raw images and metadata to predict the "
 
 ### Project Idea & Approach
 
-This project is focused on building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired by the already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks, and even build our neural network to improve the state of the art. 
+This project is focused on building or re-implementing neural network architecture that operates on an existing dataset that is already publicly available. Since the project idea was inspired by the already closed Kaggle competition, we will try to re-implement some of the most prominent shared notebooks neural networks, and even build our neural network to improve the state of the art.
 
 The task is to predict engagement with a pet's profile based on the photograph for that profile. We are also provided with hand-labelled metadata for each photo. The dataset for this competition therefore comprises both images and tabular data.
 
@@ -77,8 +77,8 @@ The  **train.csv**  and  **test.csv**  files contain metadata for photos in the 
 
 ### Work-breakdown structure
 
-Here we can see the project overview, which includes three key steps: Re-Implementation & Build NN, Application Development, and Documentation. 
-  
+Here we can see the project overview, which includes three key steps: Re-Implementation & Build NN, Application Development, and Documentation.
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/96443138/197839045-2919911a-33ac-4aab-b214-e4b65dc06402.jpg">
 </p>
@@ -87,11 +87,11 @@ Here we can see the project overview, which includes three key steps: Re-Impleme
 
 Planning complex projects can be challenging, since many unexpected issues may be encountered along the way.
 
-Here is a work-breakdown structure for the individual tasks with rough time estimates: 
+Here is a work-breakdown structure for the individual tasks with rough time estimates:
 
 
 - Re-Implementation **(80 hours)**
-  - Data pre-processing (12 hours) 
+  - Data pre-processing (12 hours)
   - Defining NN (14 hours)
   - Implementation (25 hours)
   - Training (5 hours)
@@ -146,31 +146,32 @@ https://www.kaggle.com/competitions/petfinder-pawpularity-score/overview
 
 ## Introduction
 
-In this part, the focus was to re-implement a method that reflects the state of art result. As it was mentioned in Milestone 1, the project idea was inspired by the already closed Kaggle competition, in which we re-implemented the winner's solution. The reason why we implemented the winner's solution is not only based on the best score, but the solution itself is very interesting. The solution consists of two parts, one tabular based on Transfer Learning and Support Vector Regression, and one image regression based on Deep Learning image architectures. 
+In this part, the focus was to re-implement a method that reflects the state of art result. As it was mentioned in Milestone 1, the project idea was inspired by the already closed Kaggle competition, in which we re-implemented the winner's solution. The reason why we implemented the winner's solution is not only based on the best score, but the solution itself is very interesting. The solution consists of two parts, one tabular based on Transfer Learning and Support Vector Regression, and one image regression based on Deep Learning image architectures.
 
 *Comment:*
-Additionally, I have completed the Coursera Deep Learning Specialization, which includes five courses. It has taken me a lot of time considering that I am doing over 30 ECTS this semester, but at the same time, it significantly helped me to understand the concepts in the Deep Learning field. 
+Additionally, I have completed the Coursera Deep Learning Specialization, which includes five courses. It has taken me a lot of time considering that I am doing over 30 ECTS this semester, but at the same time, it significantly helped me to understand the concepts in the Deep Learning field.
 
 ## Error Metric and Target
 
-The error metric which was used is already mentioned Pawpularity score. The Pawpularity score ranges from 1 to 100, and it is rounded to integers. The target follows a distribution with a mean average of 38.04 and a standard deviation of 20.59, which means if we predict 38.04 for all images, the RMSE score is 20.59. In other words, any model that scores **below 20.59** is considered to have some predictive power. 
+The error metric which was used is already mentioned Pawpularity score. The Pawpularity score ranges from 1 to 100, and it is rounded to integers. The target follows a distribution with a mean average of 38.04 and a standard deviation of 20.59, which means if we predict 38.04 for all images, the RMSE score is 20.59. In other words, any model that scores **below 20.59** is considered to have some predictive power.
 
 The Kaggle competition solutions usually consist of three **RMSE** scores as follows:
 - CV RMSE score (based on the training set)
 - Public Leaderboard RMSE (based on the partial test set)
 - Private Leaderboard RMSE (based on the full test set)
 
-Since the public and private leaderboard use test set which is available only through limited daily submissions, CV score based on the training set was used for evaluation. 
+Since the public and private leaderboard use test set which is available only through limited daily submissions, CV score based on the training set was used for evaluation.
 
 We wanted to achieve the winner's solution's best CV RMSE score, which was **16.80935891258082**.
 
 ## First part - Transfer Learning + SVR
 
-In the first part of the solution, the idea was to extract features from already pretrained architectures to transform the problem into a tabular approach, then fit a model using the extracted features. In the winning solution, the imagenet pretrained models available in timm and OpenAI CLIP libraries were used to extract features. Unfortunately, we were not able to implement the OpenAI CLIP library. The timm library contains 575 pretrained models, and most of them were trained using 1000 class imagenet images. 
+In the first part of the solution, the idea was to extract features from already pretrained architectures to transform the problem into a tabular approach, then fit a model using the extracted features. In the winning solution, the imagenet pretrained models available in timm and OpenAI CLIP libraries were used to extract features. Unfortunately, we were not able to implement the OpenAI CLIP library. The timm library contains 575 pretrained models, and most of them were trained using 1000 class imagenet images.
 
-OpenAI CLIP (not implemented) works differently. The architecture was trained using a combination of text and image, here is more information: https://github.com/openai/CLIP. 
+OpenAI CLIP (not implemented) works differently. The architecture was trained using a combination of text and image, here is more information: https://github.com/openai/CLIP.
 
 Only by extracting the features from the individual architectures and running SVR directly on top was possible to score competitive RMSE scores. Here is the table:
+
 
 | Architecture | Feature dimension | RMSE
 |:--|:--:|:--:
@@ -195,7 +196,8 @@ Only by extracting the features from the individual architectures and running SV
 |repvgg_b0|1000|18.21
 |fbnetc_100|1000|18.52
 
-The diversity between models was used to boost the RMSE score. A simple forward feature selection with hill climbing was used to select the best models. We have used already prepared three subsets of pretrained features that scored well because we were limited with the GPU units. Here is the simple algorithm used for the model selection:
+
+The diversity between models was used to boost the RMSE score. A simple forward feature selection with hill climbing was used to select the best models. We have used three already prepared subsets of pretrained features that scored well because we were limited with the GPU units. Here is the simple algorithm used for the model selection:
 
 ```
 Features = [‘tf_efficientnet_l2_ns_475’] # Start using only 1 model
@@ -210,7 +212,7 @@ while currentRMSE < bestRMSE: # Keep adding models while rmse decreases
     best_feat = np.argmin(rmse_scores)
 ```
 
-The algorithm keeps adding model features while RMSE keeps decreasing. The key was to use GPU-accelerated cuML SVR, otherwise, this step would take more than 3 months to execute. 
+The algorithm keeps adding model features while RMSE keeps decreasing. The key was to use GPU-accelerated cuML SVR, otherwise, this step would take more than 3 months to execute.
 
 We have ended up with these three subsets of pretrained features:
 
@@ -224,7 +226,7 @@ RMSE scores for SVRs:
  - SVR C: **17.221901868223828**
 
 Clipping target Pawpularity to 85 slightly improved the SVRs models RMSE.
-Additionally, using the multiplier of 1.032 (1.032*ypredictions) boosted the RMSE score, probably because SVR uses MSE-based optimization. 
+Additionally, using the multiplier of 1.032 (1.032*ypredictions) boosted the RMSE score, probably because SVR uses MSE-based optimization.
 
 
 
@@ -241,7 +243,7 @@ In the second part of the solution, we have a weighted average of 5 classical im
 |tf_efficientnet_b6_ns|528|normal|heavy|Yes(60%)|17.75|2
 
 Listed models were chosen using a feature selection based on the set of around 25 models which the winner built during the competition. Submission is limited to 9h, and the first (SVR) part takes around 4h to execute, which is why only a subset of the models could be used.
-**BCE loss function** was used in all models. 
+**BCE loss function** was used in all models.
 **TTA** (Test-time augmentation) gave only a **slight improvement**, around 0.0005.
 
 Finally, we have weighted the models as follows:
@@ -255,11 +257,11 @@ We can see that it is very close to the target RMSE score. (**RMSE: 16.809358912
 
 
 ## Work-breakdown structure
-### Initial 
+### Initial
 NOTE: This is only work-breakdown structure for the second part
 
 - Re-Implementation **(80 hours)**
-  - Data pre-processing (12 hours) 
+  - Data pre-processing (12 hours)
   - Defining NN (14 hours)
   - Implementation (25 hours)
   - Training (5 hours)
@@ -271,7 +273,7 @@ NOTE: This is only work-breakdown structure for the second part
 ### Realistic
 
 - Re-Implementation **(100 hours)**
-  - Data pre-processing (3 hours) 
+  - Data pre-processing (3 hours)
   - Defining NN and understanding the models (24 hours)
   - Implementation (15 hours)
   - Training (6 hours)
@@ -283,8 +285,8 @@ NOTE: This is only work-breakdown structure for the second part
 
 
 *Comment:*
-NOTE: This is official work-breakdown structure, but in reality it took me less time to complete. 
-- Deep Learning Specialization **(107 hours)** 
+NOTE: This is official work-breakdown structure, but in reality it took me less time to complete.
+- Deep Learning Specialization **(107 hours)**
 	- Convolutional Neural Networks (25 hours)
 	- Sequence Models (25 hours)
 	- Structuring Machine Learning Projects (7 hours)
@@ -319,26 +321,23 @@ Ensemble weights: [0.18395402 0.08305837 0.19805342 0.55311892]
 Final RMSE: 16.872972151586403
 ~~~
 
-Interestingly, these results scored better than the initial hyperparameters, and if we have manged to include the OpenAI CLIP library, we would probably outperformed the state-of-art. 
+Interestingly, these results scored better than the initial hyperparameters, and if we have manged to include the OpenAI CLIP library, we would probably **outperformed** the state-of-art.
 
 ### Comment
-- I have spent a lot of time finding the right solution to implement, and in the end, the 1st winner's solution was by far the most interesting. Especially this part with the embedding extraction, nobody expected that would perform this well. 
-- Since I am using M1Pro chip (Mac), it was not possible to run this experiment locally. I have spent a lot of time trying to set it up, but some packages just did not work for me. Afterwards, I have chosen to use Google Colab where I had issues installing cuML, but I have fixed it. The Kaggle notebook was the easiest to set up at the end. 
-- The disadvantage of using Kaggle notebooks is limited GPU usage (only 30 hours per week). That is the reason why my insights are slightly limited, and I could not experiment as much. 
-- Unfortunately, the OpenAI CLIP library was not possible to implement because there was some issue with the build. After spending a lot of time, I have decided to skip it because it has almost no effect on the result. 
+- I have spent a lot of time finding the right solution to implement, and in the end, the 1st winner's solution was by far the most interesting. Especially this part with the embedding extraction and SVR, nobody expected that would perform this well.
+- Since I am using M1Pro chip (Mac), it was not possible to run this experiment locally. I have spent a lot of time trying to set it up, but some packages just did not work for me. Afterwards, I have chosen to use Google Colab where I had issues installing cuML, but I have fixed it. The Kaggle notebook was the easiest to set up at the end.
+- The disadvantage of using Kaggle notebooks is limited GPU usage (only 30 hours per week). That is the reason why my insights are slightly limited, and I could not experiment as much.
+- Unfortunately, the OpenAI CLIP library was not possible to implement because there was some issue with the build. After spending a lot of time, I have decided to skip it because it has almost no effect on the result.
+- In case you have problems with cuML installation (**not** included in requirments.txt), you may use the following link: [https://colab.research.google.com/drive/1rY7Ln6rEE1pOlfSHCYOVaqt8OvDO35J0#forceEdit=true&offline=true&sandboxMode=true](https://colab.research.google.com/drive/1rY7Ln6rEE1pOlfSHCYOVaqt8OvDO35J0#forceEdit=true&offline=true&sandboxMode=true)
 - Please find in the references the link to the OneDrive which includes all models used (~53GB), and the dataset (1.04GB).
 
 
 ## What's Next
 
-The next step is to build an iOS app that evaluates how attractive your pet is based on the Pawpularity score. 
+The next step is to build an iOS app that evaluates how attractive your pet is based on the Pawpularity score.
 
 
 ### References
 
-##### Kaggle Competition - PetFinder.my - Pawpularity Contest
-https://www.kaggle.com/competitions/petfinder-pawpularity-score/overview
-
 ##### OneDrive - Applied Deep Learning (Includes models and dataset)
 https://tuwienacat-my.sharepoint.com/personal/e12122084_student_tuwien_ac_at/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fe12122084%5Fstudent%5Ftuwien%5Fac%5Fat%2FDocuments%2FApplied%20Deep%20Learning&ga=1
-

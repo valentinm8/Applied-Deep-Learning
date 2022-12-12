@@ -1,0 +1,285 @@
+
+NOTE: Clip models were not included.
+
+
+=========
+Version 1
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [0.16696733 0.05307839 0.24782257 0.55507335]
+Final RMSE: 16.893110029347223
+
+=========
+Version 2
+
+Function fit_gpu_svr:
+- SVR(C=1.0, kernel='sigmoid', degree=3, max_iter=10000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [-0.06702434 -0.25076807  0.36387192  0.96482826]
+Final RMSE: 17.00620587828511
+
+=========
+Version 3
+
+Function fit_gpu_svr:
+- SVR(C=1.0, kernel='rbf', degree=3, max_iter=10000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [-0.17602888 -0.48095874  0.68514773  0.98015547]
+Final RMSE: 16.988120111591563
+
+=========
+Version 4
+
+Function fit_gpu_svr:
+- SVR(C=10.0, kernel='rbf', degree=3, max_iter=10000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [ 0.14149537 -0.03028471  0.31407204  0.59917494]
+Final RMSE: 16.916905204037484
+
+=========
+Version 5
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=1, max_iter=10000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [0.16696733 0.05307839 0.24782257 0.55507335]
+Final RMSE: 16.893110029347223
+
+=========
+Version 6
+
+Function fit_gpu_svr:
+- SVR(C=30.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [0.18395402 0.08305837 0.19805342 0.55311892]
+Final RMSE: 16.872972151586403
+
+=========
+Version 7
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 1
+b = 1
+c = 1
+d = 1
+e = 1
+
+--------
+Results:
+Ensemble weights: [0.17006443 0.05385758 0.25098844 0.54746133]
+Final RMSE: 16.900456798197883
+
+=========
+Version 8
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 1
+b = 10
+c = 1
+d = 1
+e = 1
+
+--------
+Results:
+Ensemble weights: [0.21179912 0.10353739 0.26490158 0.44643209]
+Final RMSE: 16.910612534530074
+
+=========
+Version 9
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.05)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.15)
+
+
+Weighted average image models
+a = 2
+b = 10
+c = 3
+d = 12
+e = 3
+
+--------
+Results:
+Ensemble weights: [0.18407133 0.06861237 0.2423005  0.52932563]
+Final RMSE: 16.89378617650985
+
+=========
+Version 10
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.15)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.25)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [0.16696733 0.05307839 0.24782257 0.55507335]
+Final RMSE: 16.893110029347223
+
+=========
+Version 11
+
+Function fit_gpu_svr:
+- SVR(C=16.0, kernel='rbf', degree=3, max_iter=4000, output_type='numpy')
+
+
+Model beit_large_patch16_224:
+- Dropout(0.45)
+Model tf_efficientnet_b6_ns:
+- Dropout(0.45)
+
+
+Weighted average image models
+a = 3
+b = 4
+c = 3
+d = 4
+e = 2
+
+--------
+Results:
+Ensemble weights: [0.16696733 0.05307839 0.24782257 0.55507335]
+Final RMSE: 16.893110029347223
+
+
+
+
+
+
+
