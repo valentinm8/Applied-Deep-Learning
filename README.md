@@ -257,7 +257,7 @@ We can see that it is very close to the target RMSE score. (**RMSE: 16.809358912
 
 
 ## Work-breakdown structure
-### Initial
+### Estimated
 NOTE: This is only work-breakdown structure for the second part
 
 - Re-Implementation **(80 hours)**
@@ -270,7 +270,7 @@ NOTE: This is only work-breakdown structure for the second part
   - Prediction (2 hours)
 
 
-### Realistic
+### Actual
 
 - Re-Implementation **(100 hours)**
   - Data pre-processing (3 hours)
