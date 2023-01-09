@@ -9,6 +9,11 @@ import run_inference
 
 ALLOWED_EXTENSIONS = {'zip'}
 
+# create uploads folder (if missing)
+uploads_folder = "static/files/uploads"
+if not os.path.exists(uploads_folder):
+    os.makedirs(uploads_folder)
+
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'static/files/uploads'
@@ -30,7 +35,6 @@ def home():
         file = form.file.data # First grab the file
         if allowed_file(file.filename):
             file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename))) # Then save the file
-
 
             return redirect(url_for('result_form', filename=file.filename))
 

@@ -175,7 +175,7 @@ def run_model(test):
     test_preds_model.append(test_preds_fold)
 
     final_predictions55 = np.mean(np.array(test_preds_model), axis=0)
-    print(final_predictions55)
+    #print(final_predictions55)
     test['Pawpularity'] = final_predictions55
     return test
 
@@ -202,7 +202,7 @@ def run_inference_fuc(foldername):
     test = run_model(test)
 
     # display result in terminal
-    #print(tabulate(test, headers='keys', tablefmt='fancy_grid'))
+    print(tabulate(test, headers='keys', tablefmt='fancy_grid'))
 
     paw_filename_dict = create_result_dict(test)
     return paw_filename_dict
