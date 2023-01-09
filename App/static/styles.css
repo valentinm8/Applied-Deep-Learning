@@ -60,7 +60,7 @@ body {
 }
 
 .paw-image {
-  background-image: url('files/bg.png');
+  background-image: url('files/app/bg.png');
   background-size: 150px;
 }
 

@@ -18,9 +18,10 @@
     </tr>
     {% for key, value in imagedict.items() %}
     <tr class="table__row">
-        <td class = "table_cell"><img src  = "{{ url_for('static', filename=value)}}" class="img"></td>
-        <td class = "table_cell">{{key}}</td>
-        <td class = "table_cell">{{value}}</td>
+        <td class = "table_cell"><img src  = "{{ url_for('static', filename=key)}}" class="img"></td>
+        <td class = "table_cell" style="font-size: 25px; font-weight: bold">{{value}}</td>
+        {% set filename = key.split('/') %}
+        <td class = "table_cell" style="font-size: 25px; font-weight: bold">{{filename[3]}}</td>
         {% endfor %}
     </tr>
 
